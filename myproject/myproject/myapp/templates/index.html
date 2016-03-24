@@ -111,11 +111,80 @@ $(function () {
             {% endif %}
         </div>
 
+        {% if packages %}
+            <div class="container">
+                <div class = "packages">
+                    <div class="row">
+                        {% for package in packages %}
+                            <div class = "col-md-2">
+                                <img src = "{{ package.package_image.url }}">
+                            </div>
+                            <div class="col-md-8 col-md-offset-1">
+                                <div class = "pack">
+                                    <h4 id="{{ package.package_link.image_text }}">{{ package.package_name }}</h4>
+                                    <div class = "center">
+                                        <h5>{{ package.package_small_desc }}</h5>
+                                        <a href="#{{ package.package_modal_link }}" class="btn btn-primary" data-toggle="modal"><h5>Learn More</h5></a>
+                                    </div>
+                                </div>  
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            {% for package in packages %}
+                <div class="modal fade" id="{{ package.package_modal_link }}" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>{{ package.package_name }}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class = "center">
+                                <!-- {% for line in package.package_modal_body %}
+                                    <p> {{ line }} </p>
+                                {% endfor %} -->
+                                    <p> {{ package.package_modal_body }} </p>
+                                </div>
+                                <a href = "{{ package.package_itenary.url }}" target = "_external"><p>{{ package.package_name }} Itinerary</p></a>
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-default" data-dismiss="modal">Close</a>
+                                <a href="ContactUs.html" class="btn btn-primary">Contact Us for more details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="jumbotron">
+            <div class = "container">
+                <div class="aboutUs" id ="a">
+                    <h2>About Us</h2>
+                    <p>Jalpa Tours & Travels focuses on providing personalized travel solutions. After years of personal travelling and dealing with various agents, we always were unsatisfied with the impersonal touch and shortcomings. As a fellow traveler, we intend to change this.<br></p>
+                    <p>We provide information about pricing, availability, and booking facility for domestic and international air travel, hotel bookings, holiday packages, and car rentals. We offer a host of travel services designed to make business and leisure travel easier.</p><br>
+                    <p>For your future travels need, please call us on +1-630-310-8567 or drop us an email at jalpatravels@outlook.com</p>
+
+                    <h2> Testimonials </h2>
+                    <div class = "row">
+                        <div class = "col-md-4">
+                            <video width="250" height="200" controls>
+                                <source src=""   type="video/mp4" class = "singleVideo" />
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class = "navbar navbar-inverse navbar-fixed-bottom">
             <div class = "container">
                 <p class= "navbar-text pull-left">Site Built for Jalpa Tours & Travels</p>
                 <a href="ContactUs.html" class="navbar-btn btn-primary btn pull-right">Contact Us</a>
-                <a href="passengers.html" class="navbar-btn btn-primary btn pull-right">Passenger Details</a>
+                <!-- <a href="passengers.html" class="navbar-btn btn-primary btn pull-right">Passenger Details</a> -->
             </div>
         </div>
     </body>

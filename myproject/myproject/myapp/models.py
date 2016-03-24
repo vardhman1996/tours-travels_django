@@ -14,7 +14,10 @@ class Package(models.Model):
 	package_name = models.CharField(max_length=30)
 	package_image = models.ImageField(upload_to='package_detail_image/')
 	package_link = models.OneToOneField(PackageImages, on_delete=models.CASCADE, primary_key=True,)
-	package_small_desc = models.CharField(max_length=250)
+	package_small_desc = models.CharField(max_length=1000)
 	package_modal_link = get_random_string(length=10)
-	package_modal_body = models.CharField(max_length=1000)
+	package_modal_body = models.TextField(max_length=2500)
 	package_itenary = models.FileField(upload_to='itenaries/')
+
+class TestimonialVideo(models.Model):
+	video_link = models.FileField(upload_to='videos/')
