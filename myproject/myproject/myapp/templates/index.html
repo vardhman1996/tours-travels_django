@@ -167,14 +167,18 @@ $(function () {
                     <p>We provide information about pricing, availability, and booking facility for domestic and international air travel, hotel bookings, holiday packages, and car rentals. We offer a host of travel services designed to make business and leisure travel easier.</p><br>
                     <p>For your future travels need, please call us on +1-630-310-8567 or drop us an email at jalpatravels@outlook.com</p>
 
-                    <h2> Testimonials </h2>
-                    <div class = "row">
-                        <div class = "col-md-4">
-                            <video width="250" height="200" controls>
-                                <source src=""   type="video/mp4" class = "singleVideo" />
-                            </video>
+                    {% if videos %}
+                        <h2> Testimonials </h2>
+                        <div class = "row">
+                            {% for video in videos %}
+                                <div class = "col-md-4">
+                                    <video width="300" height="250" controls>
+                                        <source src="{{ video.video_link.url }}" type="video/mp4" class = "singleVideo" />
+                                    </video>
+                                </div>
+                            {% endfor %}
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
