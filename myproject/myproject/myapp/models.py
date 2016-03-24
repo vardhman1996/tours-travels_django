@@ -13,7 +13,7 @@ class PackageImages(models.Model):
 class Package(models.Model):
 	package_name = models.CharField(max_length=30)
 	package_image = models.ImageField(upload_to='package_detail_image/')
-	package_link = models.OneToOneField(PackageImages, on_delete=models.CASCADE, primary_key=True,)
+	package_link = models.OneToOneField(PackageImages, on_delete=models.CASCADE, primary_key=True)
 	package_small_desc = models.CharField(max_length=1000)
 	package_modal_link = get_random_string(length=10)
 	package_modal_body = models.TextField(max_length=2500)
@@ -21,3 +21,9 @@ class Package(models.Model):
 
 class TestimonialVideo(models.Model):
 	video_link = models.FileField(upload_to='videos/')
+
+class TestimonialReview(models.Model):
+	review = models.CharField(max_length=500)
+	tour = models.CharField(max_length=50)
+	name = models.CharField(max_length=30)
+	state = models.CharField(max_length=20)

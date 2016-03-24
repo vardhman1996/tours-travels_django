@@ -24,7 +24,6 @@
 
 #slider{
 	width: 90%;
-	margin-top: 70px;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -74,6 +73,11 @@
 	padding: 10px;
 	display: inline;
 }
+
+.review {
+	font-family:"Open Sans", "Times New Roman";
+}
+
 
 @font-face {
     font-family: 'Glyphicons Halflings';

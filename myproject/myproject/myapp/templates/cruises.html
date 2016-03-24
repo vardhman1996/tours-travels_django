@@ -1,0 +1,93 @@
+{% load staticfiles %}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{% static 'myapp/bootstrap.min.js' %}"></script>
+<script src="{% static 'myapp/jquery.anchorjump.js' %}"></script>
+<script type="text/javascript">
+$(function () {
+    $(".nav a").anchorjump();
+    $(".carousel-inner a").anchorjump();
+    $(".guides a").anchorjump();
+
+});
+</script>
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/styles.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/bootstrap.min.css' %}" />
+
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+<body>
+	 <div class="navbar navbar-default navbar-top">
+		<div class = "container">
+			<a href="#" class="navbar-brand"><h3 style = "margin-top: 0%;">Jalpa Tours & Travels (+1-630-310-8567) </h3></a>
+			<button class ="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class = "collapse navbar-collapse navHeaderCollapse">
+				<ul class ="nav navbar-nav navbar-right">
+					<li class="active"><a href = "index.html">Home</a></li>
+					<li class="dropdown">
+						<a href="e" class="dropdown-toggle" data-toggle ="dropdown">Vacation Packages<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="index.html#aus">Australia & New Zealand</a></li>
+							<li><a href="index.html#china">China</a></li>
+							<li><a href="index.html#italy">Italy</a></li>
+							<li><a href="index.html#spain">Spain</a></li>
+							<li><a href="index.html#europe">European Highlights</a></li>
+							<li><a href="index.html#ireland">Britain & Ireland</a></li>
+						</ul>
+					</li>
+					<li class="cruises"><a href = "#">Cruises</a></li>
+					<li><a href = "index.html#a">About Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class = "title">
+		<div class ="container">
+			<h2>You're thinking about taking a cruise? Are you looking for a cruise at an unbelievably low price?</h2>
+		</div>
+	</div>	
+	<div class = "intro">
+		<div class ="container">
+			<div class ="jumbotron">
+				<p>Then you have reached the right site. Jalpa Tours and Travels, in a
+				very short time, have enabled more than 1000 customers have the most 
+				memorable cruise.</p> 
+				<p></p>
+				<p>We work with all major cruise liners directly and work for you! With several cruise 
+				liners offerings thousands of options, we work for you to determine the right 
+				cruise for your needs. </p>
+				<p></p>
+				<p>We understand that you have several options to try, you can review several 
+				websites to shortlist your options or stick with a call center agent for hours before 
+				you get your final option listed OR you can call Jalpa Tours and Travels to 
+				achieve the same results within a short period. </p>
+				<p></p>
+				<p>We guarantee satisfaction! We work as your independent voice focused on 
+				getting you a memorable vacation with the best deal. We not only to help you find 
+				the right cruise but also help you work out end to end plans right from shore 
+				excursions, air tickets and/ or airport transfers to ports and back. </p>
+				<p></p>
+				<p>If you are looking to visit Caribbean, Alaska, Mexico, Hawaii, Bahamas, Panama, 
+				Greece and many other international cruises, call or email Jalpa Tours and 
+				Travels right now!</p>
+			</div>
+		</diV>
+	</div>
+
+	<div class = "navbar navbar-inverse navbar-fixed-bottom">
+	<div class = "container">
+		<p class= "navbar-text pull-left">Site Built for Jalpa Tours & Travels</p>
+		<a href="ContactUs.html" class="navbar-btn btn-primary btn pull-right">Contact Us</a>
+	</div>
+	</div>
+
+</body>
+</html>

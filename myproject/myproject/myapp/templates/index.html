@@ -5,7 +5,7 @@
 <script src="{% static 'myapp/jquery.anchorjump.js' %}"></script>
 <script type="text/javascript">
 $(function () {
-    $(".nav a").anchorjump();
+    $(".nav .anchor").anchorjump();
     $(".carousel-inner a").anchorjump();
     $(".guides a").anchorjump();
 
@@ -18,30 +18,29 @@ $(function () {
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Minimal Django File Upload Example</title>
+        <title>JalpaTours & Tarvels</title>
     </head>
 
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar navbar-default navbar-top">
             <div class = "container">
                 <a href="#" class="navbar-brand"><h2 style="margin-top:-2%;">Jalpa Tours & Travels </h2></a>
                 <div class = "collapse navbar-collapse navHeaderCollapse">
                     <ul class ="nav navbar-nav navbar-right">
                         <li class="active"><a href = "#">Home</a></li>
-                        <li class="dropdown">
-                            <a href="e" class="dropdown-toggle" data-toggle ="dropdown"> Vacation Packages <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#aus">Australia & New Zealand</a></li>
-                                <li><a href="#china">China</a></li>
-                                <li><a href="#italy">Italy</a></li>
-                                <li><a href="#spain">Spain</a></li>
-                                <li><a href="#europe">European Highlights</a></li>
-                                <li><a href="#ireland">Britain & Ireland</a></li>
-                            </ul>
-                        </li>
-                        <li><a href = "cruises.html">Cruises</a></li>
-                        <li><a href = "#a">About Us</a></li> 
+                        {% if packages %}
+                            <li class="dropdown">
+                                <a href="e" class="dropdown-toggle" data-toggle ="dropdown"> Vacation Packages <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    {% for package in packages %}
+                                        <li><a class="anchor" href="#{{ package.package_link.image_text }}">{{ package.package_name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endif %}
+                        <li><a href = "/myapp/cruises">Cruises</a></li>
+                        <li><a class="anchor" href = "#a">About Us</a></li> 
                     </ul>
                 </div>
             </div>
@@ -52,7 +51,7 @@ $(function () {
                 <ol class="carousel-indicators">
                     {% for slider_image in slider_images %}
                         {% if slider_image.id == 1 %}
-                            <li data-target="#slider" data-slide-to="{{ slider_image.id }}" class="active"></li>
+                            <li data-target="#slider" data-slide-to="1" class="active"></li>
                         {% else %}
                             <li data-target="#slider" data-slide-to="{{ slider_image.id }}"></li>
                         {% endif %}
@@ -162,12 +161,8 @@ $(function () {
         <div class="jumbotron">
             <div class = "container">
                 <div class="aboutUs" id ="a">
-                    <h2>About Us</h2>
-                    <p>Jalpa Tours & Travels focuses on providing personalized travel solutions. After years of personal travelling and dealing with various agents, we always were unsatisfied with the impersonal touch and shortcomings. As a fellow traveler, we intend to change this.<br></p>
-                    <p>We provide information about pricing, availability, and booking facility for domestic and international air travel, hotel bookings, holiday packages, and car rentals. We offer a host of travel services designed to make business and leisure travel easier.</p><br>
-                    <p>For your future travels need, please call us on +1-630-310-8567 or drop us an email at jalpatravels@outlook.com</p>
 
-                    {% if videos %}
+                   {% if videos %}
                         <h2> Testimonials </h2>
                         <div class = "row">
                             {% for video in videos %}
@@ -179,6 +174,25 @@ $(function () {
                             {% endfor %}
                         </div>
                     {% endif %}
+
+
+                    {% if reviews %}
+                        <h2> Reviews </h2>
+                        {% for review in reviews %}
+                            <h4> {{ review.tour }} </h4>
+                            <p class = "review"> {{ review.review }}</p>
+                            <div class = "row">
+                                <div class = "col-md-3 col-md-offset-9">
+                                    <h4>By -{{ review.name }} ({{ review.state }})</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <h2>About Us</h2>
+                    <p>Jalpa Tours & Travels focuses on providing personalized travel solutions. After years of personal travelling and dealing with various agents, we always were unsatisfied with the impersonal touch and shortcomings. As a fellow traveler, we intend to change this.<br></p>
+                    <p>We provide information about pricing, availability, and booking facility for domestic and international air travel, hotel bookings, holiday packages, and car rentals. We offer a host of travel services designed to make business and leisure travel easier.</p><br>
+                    <p>For your future travels need, please call us on +1-630-310-8567 or drop us an email at jalpatravels@outlook.com</p>
                 </div>
             </div>
         </div>

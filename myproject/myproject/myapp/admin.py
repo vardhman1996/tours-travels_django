@@ -1,5 +1,5 @@
 from django.contrib import admin
-from myproject.myapp.models import PackageImages, SliderImages, Package, TestimonialVideo
+from myproject.myapp.models import PackageImages, SliderImages, Package, TestimonialVideo, TestimonialReview
 
 
 
@@ -20,4 +20,8 @@ class SliderImagesAdmin(admin.ModelAdmin):
 admin.site.register(SliderImages, SliderImagesAdmin)
 admin.site.register(TestimonialVideo)
 
+class TestimonialReviewAdmin(admin.ModelAdmin):
+	list_display = ('name', 'state', 'tour')
+
+admin.site.register(TestimonialReview, TestimonialReviewAdmin)
 
