@@ -1,12 +1,20 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-
-
-class PackageImages(models.Model):
-    image_link = models.ImageField(upload_to='documents/')
-    image_text = models.CharField(max_length=10, default='')
-
+from django.utils.crypto import get_random_string
 
 class SliderImages(models.Model):
-	slider_link = models.ImageField(upload_to='documents/')
+	slider_link = models.ImageField(upload_to='slider_images/')
 	image_caption = models.CharField(max_length=30)
+
+class PackageImages(models.Model):
+    image_link = models.ImageField(upload_to='package_image/')
+    image_text = models.CharField(max_length=10, default='')
+
+class Package(models.Model):
+	package_name = models.CharField(max_length=30)
+	package_image = models.ImageField(upload_to='package_detail_image/')
+	package_link = models.OneToOneField(PackageImages, on_delete=models.CASCADE, primary_key=True,)
+	package_small_desc = models.CharField(max_length=250)
+	package_modal_link = get_random_string(length=10)
+	package_modal_body = models.CharField(max_length=1000)
+	package_itenary = models.FileField(upload_to='itenaries/')
